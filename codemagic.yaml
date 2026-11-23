@@ -1,0 +1,31 @@
+# Codemagic CI/CD для Android проекта VideoPlayer
+# Автоматически сгенерировано для проекта с Media3/ExoPlayer
+
+# Название приложения
+app:
+  name: "VideoPlayer"
+  # package_name оставим автоматическим определением из проекта
+
+# Build configurations
+build:
+  android:
+    # Команда сборки для Debug APK
+    # assembleDebug создаст app-debug.apk
+    buildCommand: assembleDebug
+    
+    # Путь к APK файлу (Codemagic найдет его автоматически, 
+    # но указать можно для надежности)
+    # apkPath: app/build/outputs/debug/app-debug.apk
+
+# Branches - собирать с этих веток
+# main - основная ветка, с неё будут сборки
+# Развиваем develop при необходимости
+branches:
+  only:
+    - main
+
+# Environment (опционально, если нужны особые переменные)
+# environment: {}
+
+# Post-build operations (опционально)
+# postBuild: {}
