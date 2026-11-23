@@ -1,55 +1,14 @@
 # Codemagic CI/CD для Android проекта VideoPlayer
 
-# Общая конфигурация приложения
+# Название приложения
 app:
-  # Название приложения (будет отображаться в панели Codemagic)
   name: "VideoPlayer"
-  # Идентификатор пакета будет взят из манифеста Android автоматически
 
-# Пути к артефактам (выходным файлам)
-artifacts:
-  # Путь к APK файлу после сборки
-  - app/build/outputs/debug/app-debug.apk
-
-# Флаги сборки
+# Базовая сборка
 build:
-  # Android конкретные настройки
   android:
-    # Команда сборки для Debug режима
-    # assembleDebug создаст app-debug.apk
     buildCommand: assembleDebug
 
-# Переменные окружения (опционально)
-# environment: {}
-
-# Сценарии сборки (workflows)
-workflows:
-  # Дефолтовый workflow для сборки
-  android-staging:
-    # Запуск на каждой ветке
-    branches:
-      only:
-        - main
-        - develop
-    
-    # Jobs (задачи)
-    jobs:
-      - build:
-          steps:
-            - cache/restore
-            - scripts
-            - git-clone
-            - make
-            - archive
-            - fail
-
-# Публикация артефактов
-# publication:
-#   release:
-#     title: "VideoPlayer Release"
-#     from: release
-#     config:
-#       # Имя приложения в магазинах
-#       releaseName: "VideoPlayer"
-#       # Загрузка в Google Play
-#       # artifact: "app/build/outputs/final/apks/release/app-release.apk"
+# Артефакты
+artifacts:
+  - app/build/outputs/debug/app-debug.apk
