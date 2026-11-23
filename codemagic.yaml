@@ -1,17 +1,28 @@
-# Codemagic CI/CD для Android проекта VideoPlayer
+# Codemagic CI/CD for Android Project
 
-# Название приложения
+# Application configuration
 app:
   name: "VideoPlayer"
 
-# Базовая сборка
+# Build configuration
 build:
   android:
     buildCommand: assembleDebug
 
-# Артефакты
+# Artifacts - what to publish
 artifacts:
   - app/build/outputs/debug/app-debug.apk
 
-# Workflows
-workflows: {}
+# Workflows - required section
+workflows:
+  main:
+    branches:
+      only:
+        - main
+    jobs:
+      - build:
+          steps:
+            - cache/restore
+            - git-clone
+            - make
+            - archive
