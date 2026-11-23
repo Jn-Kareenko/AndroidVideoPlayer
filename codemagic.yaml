@@ -1,13 +1,6 @@
-# Codemagic CI/CD для Android проекта VideoPlayer
-
-app:
-  name: "VideoPlayer"
-
+name: VideoPlayer
 build:
   android:
     buildCommand: assembleDebug
-
 artifacts:
   - app/build/outputs/debug/app-debug.apk
-
-workflows: {}
