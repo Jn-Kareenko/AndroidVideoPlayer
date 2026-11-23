@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Video Player</string>
+    <string name="all_videos">All Videos</string>
+    <string name="folders">Folders</string>
+    <string name="favorites">Favorites</string>
+    <string name="like_label">Like</string>
+    <string name="liked_label">Liked</string>
+    <string name="no_videos">No videos found</string>
+    <string name="scanning">Scanning videos...</string>
+    <string name="video_player_title">Video</string>
+</resources>
